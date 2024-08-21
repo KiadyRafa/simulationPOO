@@ -27,10 +27,15 @@ public class Main {
             System.out.print("Entrez le montant de la dépense : ");
             double montant = scanner.nextDouble();
 
+            System.out.println("Choisissez une catégorie parmi les suivantes :");
+            for (Depense.Categorie categorie : Depense.Categorie.values()) {
+                System.out.println("- " + categorie);
+            }
             System.out.print("Entrez la catégorie de la dépense : ");
             scanner.nextLine();
-            String categorie = scanner.nextLine();
+            String categorieInput = scanner.nextLine().toUpperCase();
 
+            Depense.Categorie categorie = Depense.Categorie.valueOf(categorieInput);
             LocalDate date = LocalDate.now();
 
             user.ajouterDepense(description, montant, categorie, date);

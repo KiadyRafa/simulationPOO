@@ -17,7 +17,7 @@ public class User {
         return budgetMaster;
     }
 
-    public void ajouterDepense(String description, double montant, String categorie, LocalDate date) {
+    public void ajouterDepense(String description, double montant, Depense.Categorie categorie, LocalDate date) {
         Depense depense = new Depense(description, montant, categorie, date);
         budgetMaster.ajouterDepense(depense);
     }
