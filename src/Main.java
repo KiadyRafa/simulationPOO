@@ -11,7 +11,7 @@ public class Main {
         System.out.print("Entrez votre budget mensuel : ");
         double budgetMensuel = scanner.nextDouble();
 
-        BudgetMaster monBudget = new BudgetMaster(nomUtilisateur, budgetMensuel);
+        User user = new User(nomUtilisateur, budgetMensuel);
 
         while (true) {
             System.out.println("\nVoulez-vous ajouter une dépense ? (oui/non)");
@@ -33,11 +33,11 @@ public class Main {
 
             LocalDate date = LocalDate.now();
 
-            monBudget.ajouterDepense(description, montant, categorie, date);
+            user.ajouterDepense(description, montant, categorie, date);
         }
 
-        double totalDepenses = monBudget.calculerTotalDepensesMoisEnCours();
-        double budgetRestant = monBudget.obtenirBudgetRestant();
+        double totalDepenses = user.getBudgetMaster().calculerTotalDepensesMoisEnCours();
+        double budgetRestant = user.getBudgetMaster().obtenirBudgetRestant();
 
         System.out.println("\nTotal dépensé ce mois-ci : " + totalDepenses);
         System.out.println("Budget restant : " + budgetRestant);
